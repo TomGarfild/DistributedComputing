@@ -1,0 +1,36 @@
+﻿<Window x:Class="Lab1_b.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab1_b"
+        mc:Ignorable="d"
+        Title="Lab1 B" Height="450" Width="800">
+    <Grid>
+        <local:NumberedTickBar Minimum="0" Maximum="100" TickFrequency="10"
+                               Margin="-10,50,0,0"
+                               Width="585" ></local:NumberedTickBar>
+        <Slider HorizontalAlignment="Center"
+                Height="30" Margin="0,50,0,0"
+                VerticalAlignment="Top" Width="600"
+                Minimum="0" Maximum="100"
+                TickPlacement="BottomRight" TickFrequency="10"
+                Value="{Binding Path=SliderValue, Mode=OneWay}"/>
+        <Button Content="Start 1!" HorizontalAlignment="Left"
+                Height="40" Margin="150, 300,0,0"
+                VerticalAlignment="Top" Width="200"
+                Click="start1Button_Click"/>
+        <Button Content="Start 2!" HorizontalAlignment="Right"
+                Height="40" Margin="0, 300,150,0"
+                VerticalAlignment="Top" Width="200"
+                Click="start2Button_Click"/>
+        <Button Content="Stop 1!" HorizontalAlignment="Left"
+                Height="40" Margin="150, 350,0,0"
+                VerticalAlignment="Top" Width="200"
+                Click="stop1Button_Click"/>
+        <Button Content="Stop 2!" HorizontalAlignment="Right"
+                Height="40" Margin="0, 350,150,0"
+                VerticalAlignment="Top" Width="200"
+                Click="stop2Button_Click"/>
+    </Grid>
+</Window>
