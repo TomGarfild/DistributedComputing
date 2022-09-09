@@ -31,35 +31,29 @@ namespace Lab1_a
         public int SliderValue { get; private set; } = 0;
         private readonly SemaphoreSlim _semaphore = new SemaphoreSlim(1);
 
-        private readonly Thread _thread1;
-        private readonly Thread _thread2;
+        private Thread? _thread1 = null;
+        private Thread? _thread2 = null;
 
-        private string _priority;
+        private string? _priority;
 
         public MainWindow()
         {
             InitializeComponent();
             DataContext = this;
-            _thread1 = new Thread(() => SetSliderValue(10)) { Name = "Thread1", IsBackground = true };
-            _thread2 = new Thread(() => SetSliderValue(90)) { Name = "Thread2", IsBackground = true };
         }
 
         public void startButton_Click(object sender, RoutedEventArgs e)
         {
-            
-            if (_thread1.ThreadState.HasFlag(ThreadState.Unstarted))
-            {
-                if (_priority == "Thread1")
-                    _thread1.Priority = ThreadPriority.Highest;
-                _thread1.Start();
-            }
+            _thread1 = new Thread(() => SetSliderValue(10)) { Name = "Thread1", IsBackground = true };
+            if (_priority == "Thread1")
+                _thread1.Priority = ThreadPriority.Highest;
 
-            if (_thread2.ThreadState.HasFlag(ThreadState.Unstarted))
-            {
-                if (_priority == "Thread2")
-                    _thread2.Priority = ThreadPriority.Highest;
-                _thread2.Start();
-            }
+            _thread2 = new Thread(() => SetSliderValue(90)) { Name = "Thread2", IsBackground = true };
+            if (_priority == "Thread2")
+                _thread2.Priority = ThreadPriority.Highest;
+
+            _thread1?.Start();
+            _thread2?.Start();
         }
 
         private void SetSliderValue(int value)
