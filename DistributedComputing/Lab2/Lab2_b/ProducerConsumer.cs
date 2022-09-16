@@ -2,6 +2,7 @@
 
 namespace Lab2_b;
 
+[Obsolete]
 public class ProducerConsumer<TData>
 {
     public string Name { get; init; } = "Producer";

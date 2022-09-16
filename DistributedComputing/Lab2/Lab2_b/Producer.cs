@@ -20,23 +20,28 @@ public class Producer<TData>
         {
             foreach (var v in data)
             {
-                while (!await _writer.WaitToWriteAsync())
-                {
-                    await Task.Delay(100);
-                }
-
-                if (_writer.TryWrite(v))
-                {
-                    Console.WriteLine($"{Name} puts {v}");
-                    Interlocked.Increment(ref _success);
-                }
-                else
-                {
-                    Console.WriteLine($"Error {Name}");
-                }
+                await Produce(v);
             }
 
             _writer.Complete();
         });
+    }
+
+    public async Task Produce(TData data)
+    {
+        while (!await _writer.WaitToWriteAsync())
+        {
+            await Task.Delay(100);
+        }
+
+        if (_writer.TryWrite(data))
+        {
+            Console.WriteLine($"{Name} puts {data}");
+            Interlocked.Increment(ref _success);
+        }
+        else
+        {
+            Console.WriteLine($"Error {Name}");
+        }
     }
 }

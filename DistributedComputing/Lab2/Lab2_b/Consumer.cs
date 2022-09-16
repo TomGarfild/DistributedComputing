@@ -18,7 +18,7 @@ public class Consumer<TData>
         _count = count;
     }
 
-    public Task Consume(Action<TData> action)
+    public Task Consume(Func<TData, Task> action)
     {
         var consumer = new Task[_count];
         for (var i = 0; i < consumer.Length; i++)
@@ -32,7 +32,7 @@ public class Consumer<TData>
                         Console.WriteLine($"{Name} gets {data}");
                         Interlocked.Increment(ref Success);
 
-                        action(data);
+                        await action(data);
                     }
                 }
             });

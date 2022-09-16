@@ -15,11 +15,11 @@ public class Weapon
 
     public string Name { get; init; } = Faker.NameFaker.Name();
     public Color Color { get; init; } = Faker.EnumFaker.SelectFrom<Color>();
-    public int Price { get; init; } = Faker.NumberFaker.Number(100_000);
+    public int Price { get; init; } = 2;
 
 
     public override string ToString()
     {
-        return $"{Name}: {Name}, {Color}: {Color}, {Price}: {Price}";
+        return $"{nameof(Name)}: {Name}, {nameof(Color)}: {Color}, {nameof(Price)}: {Price}";
     }
 }
