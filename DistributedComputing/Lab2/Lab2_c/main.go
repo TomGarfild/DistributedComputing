@@ -46,6 +46,8 @@ func main() {
 		monks = append(monks, r.Intn(100)+1)
 	}
 
+	fmt.Println(monks)
+
 	var pipe = make(chan int, 1)
 	fight(monks, 0, len(monks)-1, pipe)
 	var winnerIdx = <-pipe
