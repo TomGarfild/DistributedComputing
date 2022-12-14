@@ -8,8 +8,8 @@ import (
 )
 
 const ArraysCount = 3
-const ArraySize = 10
-const UpperBound = 5
+const ArraySize = 3
+const UpperBound = 2
 
 var random = rand.New(rand.NewSource(time.Now().Unix()))
 
@@ -88,6 +88,8 @@ func changeElement(arrayGroup *ArrayGroup, waitGroup *sync.WaitGroup, currentArr
 
 	if Abs(arrayGroup.arrays[currentArrayIndex][elemToChange]) < upperBound {
 		arrayGroup.arrays[currentArrayIndex][elemToChange] += sign
+	} else {
+		arrayGroup.arrays[currentArrayIndex][elemToChange] -= arrayGroup.arrays[currentArrayIndex][elemToChange] / upperBound
 	}
 
 	time.Sleep(100 * time.Millisecond)

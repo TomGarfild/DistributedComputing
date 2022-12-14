@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfArtist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Artist Id="0d848725-198d-4a46-a2a0-4d57697c4df6" Name="Eminem">
+		<Albums>
+			<Album Id="79acedcc-9820-4d77-9135-a37b6a5d18b3" Name="The Eminem Show" Genre="Rap" Year="2002" ArtistId="0d848725-198d-4a46-a2a0-4d57697c4df6"/>
+			<Album Id="496b0833-c4bd-4946-b5f4-04512add33bb" Name="The Marshall Mathers LP" Genre="Rap" Year="2000" ArtistId="0d848725-198d-4a46-a2a0-4d57697c4df6"/>
+			<Album Id="7ee86ab0-103f-4a0f-bbad-9ae9cd296ae5" Name="Kamikaze" Genre="Rap" Year="2018" ArtistId="0d848725-198d-4a46-a2a0-4d57697c4df6"/>
+			<Album Id="c40f8de6-06cc-42e2-8056-6d548f737003" Name="Music to Be Murdered By" Genre="Rap" Year="2020" ArtistId="0d848725-198d-4a46-a2a0-4d57697c4df6"/>
+		</Albums>
+	</Artist>
+	<Artist Id="41351396-687d-412e-b474-29032bedd608" Name="NF">
+		<Albums>
+			<Album Id="444068cf-5625-4055-b21a-b03c64a8b0d3" Name="The Search" Genre="Rap" Year="2019" ArtistId="41351396-687d-412e-b474-29032bedd608"/>
+			<Album Id="2541b8c8-d3f0-41ca-9e57-2144007a8a60" Name="Clouds (The Mixtape)" Genre="Rap" Year="2021" ArtistId="41351396-687d-412e-b474-29032bedd608"/>
+		</Albums>
+	</Artist>
+	<Artist Id="7a626987-8ae1-464e-9759-ee3f7d745bcb" Name="Beyoncé">
+		<Albums>
+			<Album Id="df33d538-9861-4353-8c2c-fa20985bece6" Name="Dangerously in Love" Genre="Pop" Year="2003" ArtistId="7a626987-8ae1-464e-9759-ee3f7d745bcb"/>
+			<Album Id="86a6ecc8-2d50-4b6f-b0bf-ca98f506f878" Name="Lemonade" Genre="Rap" Year="2016" ArtistId="7a626987-8ae1-464e-9759-ee3f7d745bcb"/>
+		</Albums>
+	</Artist>
+	<Artist Id="daa811d3-577f-4d25-bbdd-c29eae3a726f" Name="Juice WRLD">
+		<Albums>
+			<Album Id="1fc799ae-cc44-4141-9c3e-b50733d179f4" Name="Legends Never Die" Genre="Emo rap" Year="2020" ArtistId="daa811d3-577f-4d25-bbdd-c29eae3a726f"/>
+			<Album Id="33cc358f-e988-4b1a-8501-aefa219b9fb1" Name="Goodbye and Good RIddance" Genre="Emo rap" Year="2018" ArtistId="daa811d3-577f-4d25-bbdd-c29eae3a726f"/>
+		</Albums>
+	</Artist>
+</ArrayOfArtist>
