@@ -73,18 +73,20 @@ public class Studio
         DeleteAlbums(id);
     }
 
-    public void AddAlbum(Guid artistId, string name, string genre, int year)
+    public Album AddAlbum(Guid artistId, string name, string genre, int year)
     {
         var artist = GetArtist(artistId);
 
         if (artist == null)
         {
             Console.WriteLine($"Artist with {artistId} does not exist");
-            return;
+            return null;
         }
-        
-        _albums.Add(new Album(Guid.NewGuid(), artistId, name, genre, year));
+
+        var album = new Album(Guid.NewGuid(), artistId, name, genre, year);
+        _albums.Add(album);
         artist.Albums = _albums.Where(a => a.ArtistId == artistId).ToArray();
+        return album;
     }
 
     public Album GetAlbum(Guid id)
