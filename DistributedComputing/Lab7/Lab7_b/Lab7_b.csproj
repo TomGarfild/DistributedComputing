@@ -7,13 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Lab7.Domain\Lab7.Domain.csproj" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="studio.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <ProjectReference Include="..\Lab7.Domain\Lab7.Domain.csproj" />
   </ItemGroup>
 
 </Project>

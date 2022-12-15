@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace Lab7_a.Models;
+namespace Lab7.Domain.Models;
 
 public class Artist
 {

@@ -1,5 +1,5 @@
 ﻿using System.Xml.Serialization;
-using Lab7_a.Models;
+using Lab7.Domain.Models;
 
 namespace Lab7_a;
 
