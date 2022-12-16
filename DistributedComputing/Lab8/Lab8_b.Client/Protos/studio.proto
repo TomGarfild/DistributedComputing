@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+option csharp_namespace = "Lab8_b.Client";
+
+package studio;
+
+service Studio {
+  rpc AddArtist (AddArtistRequest) returns (AddArtistReply);
+  rpc GetArtists (GetArtistsRequest) returns (GetArtistsReply);
+  rpc DeleteArtist (DeleteArtistRequest) returns (DeleteArtistReply);
+  rpc UpdateArtist(UpdateArtistRequest) returns (UpdateArtistReply);
+  rpc AddAlbum(AddAlbumRequest) returns (AddAlbumReply);
+  rpc CountAlbums(CountAlbumsByArtistRequest) returns (CountAlbumsByArtistReply);
+  rpc GetAlbumsByArtist(GetAlbumsByArtistRequest) returns (GetAlbumsByArtistReply);
+}
+
+message AddArtistRequest {
+	string name = 1;
+}
+
+message AddArtistReply {
+	string id = 1;
+}
+
+message GetArtistsRequest {
+}
+
+message GetArtistsReply {
+	string ids = 1;
+}
+
+message DeleteArtistRequest {
+	string id = 1;
+}
+
+message DeleteArtistReply {
+	string message = 1;
+}
+
+message UpdateArtistRequest {
+	string id = 1;
+	string name = 2;
+}
+
+message UpdateArtistReply {
+	string message = 1;
+}
+
+message AddAlbumRequest {
+	string name = 1;
+	string genre = 2;
+	int32 year = 3;
+	string artistId = 4;
+}
+
+message AddAlbumReply {
+	string id = 1;
+}
+
+message CountAlbumsByArtistRequest {
+	string artistId = 1;
+}
+
+message CountAlbumsByArtistReply {
+	int32 count = 1;
+}
+
+message GetAlbumsByArtistRequest {
+	string artistId = 1;
+}
+
+message GetAlbumsByArtistReply {
+	string ids = 1;
+}
