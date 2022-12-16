@@ -36,6 +36,11 @@ public class Studio : IDisposable
         ExecuteCommand($"DROP TABLE IF EXISTS {name}");
     }
 
+    public void AddArtist(Guid id, string name)
+    {
+        ExecuteCommand($"INSERT INTO {ArtistsTable} (Id, Name) VALUES ('{id}', '{name}')");
+    }
+
     public Guid AddArtist(string name)
     {
         var id = Guid.NewGuid();
@@ -83,6 +88,11 @@ public class Studio : IDisposable
         var id = Guid.NewGuid();
         ExecuteCommand($"INSERT INTO {AlbumsTable} (Id, Name, Genre, Year, ArtistId) VALUES ('{id}', '{name}', '{genre}', {year}, '{artistId}')");
         return id;
+    }
+
+    public void AddAlbum(Guid id, string name, string genre, int year, Guid artistId)
+    {
+        ExecuteCommand($"INSERT INTO {AlbumsTable} (Id, Name, Genre, Year, ArtistId) VALUES ('{id}', '{name}', '{genre}', {year}, '{artistId}')");
     }
 
     public void UpdateAlbum(Guid id, string name, string genre, int year)

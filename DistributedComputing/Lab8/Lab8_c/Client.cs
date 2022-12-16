@@ -11,24 +11,56 @@ public class Client
         var factory = new ConnectionFactory() { HostName = "localhost" };
         using var connection = factory.CreateConnection();
         using var channel = connection.CreateModel();
-        channel.QueueDeclare(queue: "hello",
+        channel.QueueDeclare(queue: "studio",
             durable: false,
             exclusive: false,
             autoDelete: false,
             arguments: null);
 
-        var consumer = new EventingBasicConsumer(channel);
-        consumer.Received += (model, ea) =>
-        {
-            var body = ea.Body.ToArray();
-            var message = Encoding.UTF8.GetString(body);
-            Console.WriteLine(" [x] Received {0}", message);
-        };
-        channel.BasicConsume(queue: "hello",
-            autoAck: true,
-            consumer: consumer);
+        var id = Guid.NewGuid();
+        string message = $"ADD_ARTIST|{id}|EMINEM";
+        var body = Encoding.UTF8.GetBytes(message);
 
-        Console.WriteLine(" Press [enter] to exit.");
-        Console.ReadLine();
+        channel.BasicPublish(exchange: "",
+            routingKey: "studio",
+            basicProperties: null,
+            body: body);
+
+
+        var id2 = Guid.NewGuid();
+        string message2 = $"ADD_ARTIST|{id2}|NF";
+        var body2 = Encoding.UTF8.GetBytes(message2);
+
+        channel.BasicPublish(exchange: "",
+            routingKey: "studio",
+            basicProperties: null,
+            body: body2);
+
+
+        string message3 = $"DELETE_ARTIST|{id2}";
+        var body3 = Encoding.UTF8.GetBytes(message3);
+        channel.BasicPublish(exchange: "",
+            routingKey: "studio",
+            basicProperties: null,
+            body: body3);
+
+        var albumId = Guid.NewGuid();
+        string messageAlbum = $"ADD_ALBUM|{albumId}|Kamikaze|Rap|2018|{id}";
+        var bodyAlbum = Encoding.UTF8.GetBytes(messageAlbum);
+
+        channel.BasicPublish(exchange: "",
+            routingKey: "studio",
+            basicProperties: null,
+            body: bodyAlbum);
+        
+        string messageAlbum2 = $"DELETE_ALBUM|{albumId}";
+        var bodyAlbum2 = Encoding.UTF8.GetBytes(messageAlbum2);
+
+        channel.BasicPublish(exchange: "",
+            routingKey: "studio",
+            basicProperties: null,
+            body: bodyAlbum2);
+
+        Console.ReadKey();
     }
 }
