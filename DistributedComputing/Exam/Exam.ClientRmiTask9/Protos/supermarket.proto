@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option csharp_namespace = "Exam.ClientRmiTask9";
+
+package supermarket;
+
+service Supermarket {
+  rpc GetByName (GetByNameRequest) returns (GetByNameResponse);
+  rpc GetByNameBelowOrEqPrice (GetByNameBelowOrEqPriceRequest) returns (GetByNameBelowOrEqPriceResponse);
+  rpc GetOverdue (GetOverdueRequest) returns (GetOverdueResponse);
+}
+
+message GetByNameRequest {
+  string Name = 1;
+}
+
+message GetByNameResponse {
+  string ids = 1;
+}
+
+message GetByNameBelowOrEqPriceRequest {
+	string Name = 1;
+	int32 Price = 2;
+}
+
+message GetByNameBelowOrEqPriceResponse {
+	string ids = 1;
+}
+
+message GetOverdueRequest {
+	int32 Day = 1;
+	int32 Month = 2;
+	int32 Year = 3;
+}
+
+message GetOverdueResponse {
+	string ids = 1;
+}

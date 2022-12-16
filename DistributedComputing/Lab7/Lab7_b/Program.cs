@@ -29,7 +29,12 @@ namespace Lab7_b
         //    Console.WriteLine($"{album.Name}; {album.Genre}; {album.Year}");
         //    studio.DeleteArtist(nfId);
         //    Print(studio);
-            var server = new Server();
+
+
+        //    var server = new Server();
+        //    server.Start();
+
+            var server = new RabbitMqServer();
             server.Start();
         }
 
