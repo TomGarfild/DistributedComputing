@@ -6,29 +6,31 @@ namespace Lab7_b
     {
         static void Main(string[] args)
         {
-            var studio = new Studio();
-            studio.Start(true);
-            var eminemId = studio.AddArtist("Eminem");
-            var nfId = studio.AddArtist("NF");
-            Print(studio);
+        //    var studio = new Studio();
+        //    studio.Start(true);
+        //    var eminemId = studio.AddArtist("Eminem");
+        //    var nfId = studio.AddArtist("NF");
+        //    Print(studio);
 
-            studio.AddAlbum("The Eminem Show", "Rap", 2002, eminemId);
-            var albumId = studio.AddAlbum("The Marshall Mathers LP", "Rap", 2000, eminemId);
-            Print(studio);
+        //    studio.AddAlbum("The Eminem Show", "Rap", 2002, eminemId);
+        //    var albumId = studio.AddAlbum("The Marshall Mathers LP", "Rap", 2000, eminemId);
+        //    Print(studio);
 
-            studio.UpdateArtist(eminemId, "Slim Shady");
-            Print(studio);
+        //    studio.UpdateArtist(eminemId, "Slim Shady");
+        //    Print(studio);
             
-            studio.DeleteAlbum(albumId);
-            Print(studio);
+        //    studio.DeleteAlbum(albumId);
+        //    Print(studio);
 
-            albumId = studio.AddAlbum("The Search", "Rap", 2019, nfId);
-            Print(studio);
-            studio.UpdateAlbum(albumId, "The Search(2)", "Rap", 2019);
-            var album = studio.GetAlbum(albumId);
-            Console.WriteLine($"{album.Name}; {album.Genre}; {album.Year}");
-            studio.DeleteArtist(nfId);
-            Print(studio);
+        //    albumId = studio.AddAlbum("The Search", "Rap", 2019, nfId);
+        //    Print(studio);
+        //    studio.UpdateAlbum(albumId, "The Search(2)", "Rap", 2019);
+        //    var album = studio.GetAlbum(albumId);
+        //    Console.WriteLine($"{album.Name}; {album.Genre}; {album.Year}");
+        //    studio.DeleteArtist(nfId);
+        //    Print(studio);
+            var server = new Server();
+            server.Start();
         }
 
         static void Print(Studio studio)

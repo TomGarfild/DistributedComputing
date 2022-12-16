@@ -114,6 +114,13 @@ public class Studio : IDisposable
         return res;
     }
 
+    public int CountAlbumsForArtist(Guid artistId)
+    {
+        var res = ExecuteScalar($"SELECT COUNT (*) FROM {AlbumsTable} WHERE ArtistId='{artistId}'");
+        
+        return (int)(long)res;
+    }
+
     public List<Album> GetAllAlbums()
     {
         var rdr = ExecuteQuery($"SELECT * FROM {AlbumsTable}");
@@ -136,6 +143,12 @@ public class Studio : IDisposable
     {
         var cmd = new SqliteCommand(text, _connection);
         return cmd.ExecuteReader();
+    }
+
+    public object ExecuteScalar(string text)
+    {
+        var cmd = new SqliteCommand(text, _connection);
+        return cmd.ExecuteScalar();
     }
 
     public void Dispose()
