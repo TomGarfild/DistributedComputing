@@ -10,7 +10,7 @@ namespace Lab8_b.Server.Services
         {
             _logger = logger;
             _studio = studio;
-            _studio.Start(true);
+            _studio.Start();
         }
 
         public override Task<AddArtistReply> AddArtist(AddArtistRequest request, ServerCallContext context)
